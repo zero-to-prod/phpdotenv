@@ -8,7 +8,7 @@ namespace Zerotoprod\Phpdotenv;
 class Phpdotenv
 {
     /**
-     * Parse an array of lines into key-value pairs.
+     * A pure function that parses an array of lines into key-value pairs.
      *
      * @param  array  $lines
      *
