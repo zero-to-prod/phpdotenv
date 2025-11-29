@@ -2,6 +2,9 @@
 
 namespace Zerotoprod\Phpdotenv;
 
+/**
+ * @link https://github.com/zero-to-prod/phpdotenv
+ */
 class Phpdotenv
 {
     /**
@@ -10,6 +13,7 @@ class Phpdotenv
      * @param  array  $lines
      *
      * @return array
+     * @link https://github.com/zero-to-prod/phpdotenv
      */
     public static function parse(array $lines): array
     {
