@@ -5,10 +5,10 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Zerotoprod\Phpdotenv\Phpdotenv;
 
-class ExampleTest extends TestCase
+class ParseTest extends TestCase
 {
     /** @test */
-    public function it_parses_simple_key_value_pairs()
+    public function it_parses_simple_key_value_pairs(): void
     {
         $lines = ['TEST_KEY=test_value'];
 
@@ -18,7 +18,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_skips_comment_lines()
+    public function it_skips_comment_lines(): void
     {
         $lines = [
             '# This is a comment',
@@ -32,7 +32,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_strips_double_quotes_from_values()
+    public function it_strips_double_quotes_from_values(): void
     {
         $lines = ['QUOTED_DOUBLE="quoted value"'];
 
@@ -42,7 +42,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_strips_single_quotes_from_values()
+    public function it_strips_single_quotes_from_values(): void
     {
         $lines = ["QUOTED_SINGLE='single quoted'"];
 
@@ -52,7 +52,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_trims_whitespace_from_keys_and_values()
+    public function it_trims_whitespace_from_keys_and_values(): void
     {
         $lines = ['  WITH_SPACES  =  value with trim  '];
 
@@ -62,7 +62,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_handles_unquoted_values()
+    public function it_handles_unquoted_values(): void
     {
         $lines = ['UNQUOTED=plain_value'];
 
@@ -72,7 +72,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_handles_empty_lines()
+    public function it_handles_empty_lines(): void
     {
         $lines = [
             'TEST_KEY=value1',
@@ -90,7 +90,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_handles_lines_without_equals_sign()
+    public function it_handles_lines_without_equals_sign(): void
     {
         $lines = [
             'VALID_KEY=value',
@@ -107,7 +107,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_handles_values_with_equals_signs()
+    public function it_handles_values_with_equals_signs(): void
     {
         $lines = ['MULTILINE_KEY=value=with=equals'];
 
@@ -117,7 +117,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_handles_empty_values()
+    public function it_handles_empty_values(): void
     {
         $lines = ['TEST_KEY='];
 
@@ -127,7 +127,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_handles_mixed_quote_styles_in_value()
+    public function it_handles_mixed_quote_styles_in_value(): void
     {
         $lines = ["TEST_KEY=\"value with 'single' quotes inside\""];
 
@@ -137,7 +137,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_parses_multiple_variables()
+    public function it_parses_multiple_variables(): void
     {
         $lines = [
             'APP_NAME=MyApp',
@@ -157,7 +157,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_empty_array_for_empty_input()
+    public function it_returns_empty_array_for_empty_input(): void
     {
         $result = Phpdotenv::parse([]);
 
@@ -165,7 +165,7 @@ class ExampleTest extends TestCase
     }
 
     /** @test */
-    public function it_overwrites_duplicate_keys_with_last_value()
+    public function it_overwrites_duplicate_keys_with_last_value(): void
     {
         $lines = [
             'DUPLICATE_KEY=first_value',
