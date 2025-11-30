@@ -32,8 +32,7 @@ class Phpdotenv
                 $value = trim($value);
 
                 if (strlen($value) >= 2) {
-                    if (($value[0] === '"' && $value[-1] === '"') ||
-                        ($value[0] === "'" && $value[-1] === "'")) {
+                    if (($value[0] === '"' && $value[-1] === '"') || ($value[0] === "'" && $value[-1] === "'")) {
                         $value = substr($value, 1, -1);
                     }
                 }
@@ -43,5 +42,17 @@ class Phpdotenv
         }
 
         return $parsed;
+    }
+
+    public static function parseFromString(string $subject): array
+    {
+        return self::parse(
+            array_filter(
+                preg_split('/\r\n|\r|\n/', $subject),
+                static function ($line) {
+                    return $line !== '';
+                }
+            )
+        );
     }
 }
