@@ -44,6 +44,9 @@ class Phpdotenv
         return $parsed;
     }
 
+    /**
+     * @link https://github.com/zero-to-prod/phpdotenv
+     */
     public static function parseFromString(string $subject): array
     {
         return self::parse(
