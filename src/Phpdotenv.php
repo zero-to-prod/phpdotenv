@@ -45,6 +45,11 @@ class Phpdotenv
     }
 
     /**
+     * A pure function that parses a string into key-value pairs.
+     *
+     * @param  string  $subject
+     *
+     * @return array
      * @link https://github.com/zero-to-prod/phpdotenv
      */
     public static function parseFromString(string $subject): array
